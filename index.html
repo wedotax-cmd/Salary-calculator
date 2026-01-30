@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="South African Salary Calculator by We Do Tax Services - Calculate PAYE, UIF, fringe benefits, and net salary with SARS tax tables">
+    <meta name="keywords" content="South Africa, salary calculator, PAYE, tax calculator, SARS, We Do Tax Services">
+    <title>SA Salary Calculator - We Do Tax Services (Pty) Ltd</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo-primary.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="images/logo-primary.png" alt="We Do Tax Services Logo">
+                <div class="header-title">
+                    <h1>South African Salary Calculator</h1>
+                    <span class="subtitle">Professional Tax Calculation Tool</span>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="welcome.html"><i class="fas fa-home"></i> Home</a>
+                <a href="guide.html"><i class="fas fa-book"></i> Guide</a>
+                <a href="test.html"><i class="fas fa-flask"></i> Test</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Introduction -->
+            <div class="info-box info">
+                <div class="info-box-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="info-box-content">
+                    <h4>Welcome to the We Do Tax Services Salary Calculator</h4>
+                    <p>Calculate your South African salary with accurate PAYE, UIF, and fringe benefit calculations based on SARS tax tables. Enter your income details below to get started.</p>
+                </div>
+            </div>
+
+            <!-- CALCULATOR FORM -->
+            <form id="salaryForm" class="calculator-form">
+                <!-- Employee Information -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-user-circle"></i>
+                        <h2>Employee Information</h2>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="employeeName">
+                                <i class="fas fa-user"></i>
+                                Employee Name
+                            </label>
+                            <input type="text" id="employeeName" placeholder="Enter full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyName">
+                                <i class="fas fa-building"></i>
+                                Company Name
+                            </label>
+                            <input type="text" id="companyName" placeholder="Enter company name">
+                        </div>
+                        <div class="form-group">
+                            <label for="period">
+                                <i class="fas fa-calendar-alt"></i>
+                                Calculation Period
+                            </label>
+                            <input type="text" id="period" placeholder="e.g., January 2026">
+                        </div>
+                        <div class="form-group">
+                            <label for="taxYear">
+                                <i class="fas fa-calendar-check"></i>
+                                Tax Year
+                            </label>
+                            <select id="taxYear">
+                                <option value="2024">2024/2025</option>
+                                <option value="2025">2025/2026</option>
+                                <option value="2026" selected>2026/2027</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Income Components -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h2>Income Components</h2>
+                    </div>
+                    <p class="section-description">Enter all income received during this period</p>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="basicSalary">
+                                <i class="fas fa-coins"></i>
+                                Basic Salary (Monthly)
+                            </label>
+                            <input type="number" id="basicSalary" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="overtime">
+                                <i class="fas fa-clock"></i>
+                                Overtime
+                            </label>
+                            <input type="number" id="overtime" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="annualBonus">
+                                <i class="fas fa-gift"></i>
+                                Annual Bonus
+                            </label>
+                            <input type="number" id="annualBonus" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="otherBonus">
+                                <i class="fas fa-award"></i>
+                                Other Bonuses
+                            </label>
+                            <input type="number" id="otherBonus" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="subsistenceAllowance">
+                                <i class="fas fa-utensils"></i>
+                                Subsistence Allowance
+                            </label>
+                            <input type="number" id="subsistenceAllowance" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="travelAllowance">
+                                <i class="fas fa-car"></i>
+                                Travel Allowance
+                            </label>
+                            <input type="number" id="travelAllowance" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="otherAllowances">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                Other Allowances
+                            </label>
+                            <input type="number" id="otherAllowances" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fringe Benefits -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h2>Fringe Benefits</h2>
+                    </div>
+                    <p class="section-description">Company-provided benefits (added to taxable income)</p>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="companyCarBenefit">
+                                <i class="fas fa-car-side"></i>
+                                Company Car Fringe Benefit
+                            </label>
+                            <input type="number" id="companyCarBenefit" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="taxableTravelPortion">
+                                <i class="fas fa-route"></i>
+                                Taxable Travel Portion
+                            </label>
+                            <input type="number" id="taxableTravelPortion" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="medicalAidFringeBenefit">
+                                <i class="fas fa-heartbeat"></i>
+                                Medical Aid Fringe Benefit
+                            </label>
+                            <input type="number" id="medicalAidFringeBenefit" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="providentFundFringeBenefit">
+                                <i class="fas fa-piggy-bank"></i>
+                                Provident Fund Fringe Benefit
+                            </label>
+                            <input type="number" id="providentFundFringeBenefit" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="otherFringeBenefits">
+                                <i class="fas fa-plus-circle"></i>
+                                Other Fringe Benefits
+                            </label>
+                            <input type="number" id="otherFringeBenefits" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Employee Contributions & Deductions -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-calculator"></i>
+                        <h2>Employee Contributions & Deductions</h2>
+                    </div>
+                    <p class="section-description">Amounts deducted from employee salary</p>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="medicalAidEmployee">
+                                <i class="fas fa-hospital-user"></i>
+                                Medical Aid Contribution
+                            </label>
+                            <input type="number" id="medicalAidEmployee" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="providentFundEmployee">
+                                <i class="fas fa-wallet"></i>
+                                Provident/Pension Fund Contribution
+                            </label>
+                            <input type="number" id="providentFundEmployee" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="retirementAnnuity">
+                                <i class="fas fa-umbrella"></i>
+                                Retirement Annuity
+                            </label>
+                            <input type="number" id="retirementAnnuity" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="medicalAidDependents">
+                                <i class="fas fa-users"></i>
+                                Medical Aid Dependents
+                            </label>
+                            <input type="number" id="medicalAidDependents" placeholder="0" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Employer Contributions -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-building-columns"></i>
+                        <h2>Employer Contributions</h2>
+                    </div>
+                    <p class="section-description">Company contributions (not deducted from salary but included in CTC)</p>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="medicalAidEmployer">
+                                <i class="fas fa-hand-holding-medical"></i>
+                                Medical Aid - Employer Amount
+                            </label>
+                            <input type="number" id="medicalAidEmployer" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="providentFundEmployer">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                Provident Fund - Employer Contribution
+                            </label>
+                            <input type="number" id="providentFundEmployer" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                    </div>
+                    <div class="info-box info">
+                        <div class="info-box-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="info-box-content">
+                            <p><strong>Note:</strong> UIF and Skills Development Levy are automatically calculated at 1% of gross income (UIF capped at R177.12).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-calculator"></i>
+                        Calculate Salary
+                    </button>
+                    <button type="button" id="resetBtn" class="btn btn-secondary">
+                        <i class="fas fa-undo"></i>
+                        Reset Form
+                    </button>
+                    <button type="button" id="downloadPdfBtn" class="btn btn-success" style="display: none;">
+                        <i class="fas fa-file-pdf"></i>
+                        Download PDF Report
+                    </button>
+                </div>
+            </form>
+
+            <!-- RESULTS SECTION -->
+            <div id="results" style="display: none;">
+                <div class="results-container">
+                    <!-- Summary Cards -->
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <div class="summary-card-header">
+                                <div class="summary-card-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="summary-card-title">Gross Pay</div>
+                            </div>
+                            <div class="summary-card-value" id="summaryGrossPay">R 0.00</div>
+                            <div class="summary-card-description">Total income before deductions</div>
+                        </div>
+
+                        <div class="summary-card">
+                            <div class="summary-card-header">
+                                <div class="summary-card-icon">
+                                    <i class="fas fa-minus-circle"></i>
+                                </div>
+                                <div class="summary-card-title">Total Deductions</div>
+                            </div>
+                            <div class="summary-card-value" id="summaryDeductions">R 0.00</div>
+                            <div class="summary-card-description">PAYE, UIF, and contributions</div>
+                        </div>
+
+                        <div class="summary-card">
+                            <div class="summary-card-header">
+                                <div class="summary-card-icon">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div class="summary-card-title">Net Pay</div>
+                            </div>
+                            <div class="summary-card-value" id="summaryNettPay">R 0.00</div>
+                            <div class="summary-card-description">Take-home salary</div>
+                        </div>
+
+                        <div class="summary-card">
+                            <div class="summary-card-header">
+                                <div class="summary-card-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="summary-card-title">Cost to Company</div>
+                            </div>
+                            <div class="summary-card-value" id="summaryCTC">R 0.00</div>
+                            <div class="summary-card-description">Total employer cost</div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Breakdown -->
+                    <div class="detail-section">
+                        <div class="detail-section-header">
+                            <i class="fas fa-list-ul"></i>
+                            <h3>Income Breakdown</h3>
+                        </div>
+                        <div class="detail-grid" id="incomeBreakdown"></div>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-section-header">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>Fringe Benefits Breakdown</h3>
+                        </div>
+                        <div class="detail-grid" id="benefitsBreakdown"></div>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-section-header">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <h3>Tax Calculation Details</h3>
+                        </div>
+                        <div class="detail-grid" id="taxBreakdown"></div>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-section-header">
+                            <i class="fas fa-minus-square"></i>
+                            <h3>Deductions Breakdown</h3>
+                        </div>
+                        <div class="detail-grid" id="deductionsBreakdown"></div>
+                    </div>
+
+                    <div class="detail-section">
+                        <div class="detail-section-header">
+                            <i class="fas fa-building"></i>
+                            <h3>Employer Contributions</h3>
+                        </div>
+                        <div class="detail-grid" id="employerBreakdown"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="info-box warning" style="margin-top: 2rem;">
+                <div class="info-box-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="info-box-content">
+                    <h4>Important Disclaimer</h4>
+                    <p>This calculator provides estimates based on SARS tax tables and standard calculations. Results may vary based on individual circumstances. For personalized tax advice, please consult with a tax professional at We Do Tax Services.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo-horizontal.png" alt="We Do Tax Services">
+                    </div>
+                    <p>Professional tax services and salary calculations for individuals and businesses in South Africa.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="welcome.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="index.html"><i class="fas fa-calculator"></i> Calculator</a></li>
+                        <li><a href="guide.html"><i class="fas fa-book"></i> User Guide</a></li>
+                        <li><a href="test.html"><i class="fas fa-flask"></i> Test Example</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@wdtax.co.za"><i class="fas fa-envelope"></i> info@wdtax.co.za</a></li>
+                        <li><a href="tel:+27123456789"><i class="fas fa-phone"></i> +27 (0)12 345 6789</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> South Africa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <a href="#">We Do Tax Services (Pty) Ltd</a>. All rights reserved. | Powered by professional tax expertise</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/taxTables.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/pdfGenerator.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

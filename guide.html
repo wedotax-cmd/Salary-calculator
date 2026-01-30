@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Guide for We Do Tax Services Salary Calculator">
+    <title>User Guide - We Do Tax Services Salary Calculator</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo-primary.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="images/logo-primary.png" alt="We Do Tax Services Logo">
+                <div class="header-title">
+                    <h1>User Guide</h1>
+                    <span class="subtitle">Complete Guide to Using the Salary Calculator</span>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="welcome.html"><i class="fas fa-home"></i> Home</a>
+                <a href="index.html"><i class="fas fa-calculator"></i> Calculator</a>
+                <a href="guide.html"><i class="fas fa-book"></i> Guide</a>
+                <a href="test.html"><i class="fas fa-flask"></i> Test</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="main-content">
+            <div class="hero-logo" style="text-align: center; margin-bottom: 2rem;">
+                <img src="images/logo-primary.png" alt="We Do Tax Services" style="height: 80px;">
+            </div>
+            <h1 style="text-align: center; color: var(--brand-navy); margin-bottom: 1rem;">Complete User Guide</h1>
+            <p style="text-align: center; color: var(--brand-grey); font-size: 1.1rem; margin-bottom: 3rem;">
+                Everything you need to know about using the We Do Tax Services Salary Calculator
+            </p>
+
+            <!-- Getting Started -->
+            <div class="guide-section">
+                <h2><i class="fas fa-rocket"></i> Getting Started</h2>
+                <p>The We Do Tax Services Salary Calculator is designed to help you calculate South African salaries accurately using official SARS tax tables. Follow these steps to get started:</p>
+                
+                <div class="info-box info">
+                    <div class="info-box-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <h4>Quick Start Tip</h4>
+                        <p>Visit the <a href="test.html" style="color: var(--brand-gold); font-weight: 600;">Test Page</a> to see a pre-loaded example with real data. This is a great way to understand how the calculator works!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Information -->
+            <div class="guide-section">
+                <h2><i class="fas fa-user-circle"></i> Step 1: Employee Information</h2>
+                <p>Start by entering basic employee details:</p>
+                
+                <div class="data-table">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Description</th>
+                                <th>Required</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Employee Name</strong></td>
+                                <td>Full name of the employee</td>
+                                <td>Optional (recommended for PDF)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Company Name</strong></td>
+                                <td>Name of the employing company</td>
+                                <td>Optional (recommended for PDF)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Calculation Period</strong></td>
+                                <td>Month and year (e.g., "January 2026")</td>
+                                <td>Optional (recommended for records)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tax Year</strong></td>
+                                <td>Select: 2024/2025, 2025/2026, or 2026/2027</td>
+                                <td><span style="color: var(--error-color); font-weight: 600;">Required</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Income Components -->
+            <div class="guide-section">
+                <h2><i class="fas fa-money-bill-wave"></i> Step 2: Income Components</h2>
+                <p>Enter all income received by the employee during the period:</p>
+                
+                <div class="detail-section">
+                    <div class="detail-section-header">
+                        <h3>Income Types Explained</h3>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-coins"></i> Basic Salary</div>
+                            <div class="detail-value">Monthly fixed salary before any additions</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-clock"></i> Overtime</div>
+                            <div class="detail-value">Additional payments for work beyond normal hours</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-gift"></i> Annual Bonus</div>
+                            <div class="detail-value">13th cheque or annual performance bonus</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-award"></i> Other Bonuses</div>
+                            <div class="detail-value">Commission, incentives, or other bonus payments</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-utensils"></i> Subsistence Allowance</div>
+                            <div class="detail-value">Daily allowance for meals and incidental costs</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-car"></i> Travel Allowance</div>
+                            <div class="detail-value">Monthly allowance for business travel</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-hand-holding-usd"></i> Other Allowances</div>
+                            <div class="detail-value">Any other taxable allowances</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fringe Benefits -->
+            <div class="guide-section">
+                <h2><i class="fas fa-briefcase"></i> Step 3: Fringe Benefits</h2>
+                <p>Fringe benefits are taxable perks provided by the employer. These are added to your taxable income:</p>
+                
+                <div class="info-box warning">
+                    <div class="info-box-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <h4>Important Note on Fringe Benefits</h4>
+                        <p>Fringe benefits increase your taxable income but are NOT deducted from your gross pay. They affect your PAYE calculation but don't reduce your take-home salary.</p>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-section-header">
+                        <h3>Fringe Benefit Types</h3>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-car-side"></i> Company Car Benefit</div>
+                            <div class="detail-value">Value of company car for private use</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-route"></i> Taxable Travel Portion</div>
+                            <div class="detail-value">Portion of travel allowance subject to tax</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-heartbeat"></i> Medical Aid Fringe Benefit</div>
+                            <div class="detail-value">Employer medical aid contribution (taxable portion)</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-piggy-bank"></i> Provident Fund Fringe Benefit</div>
+                            <div class="detail-value">Employer provident fund contribution (over threshold)</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-plus-circle"></i> Other Fringe Benefits</div>
+                            <div class="detail-value">Housing, loans, or other taxable benefits</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Contributions -->
+            <div class="guide-section">
+                <h2><i class="fas fa-calculator"></i> Step 4: Employee Contributions</h2>
+                <p>Enter amounts that are deducted from the employee's salary:</p>
+                
+                <div class="detail-section">
+                    <div class="detail-section-header">
+                        <h3>Deductible Contributions</h3>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-hospital-user"></i> Medical Aid Contribution</div>
+                            <div class="detail-value">Employee's monthly medical aid contribution</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-wallet"></i> Provident/Pension Fund</div>
+                            <div class="detail-value">Employee's retirement fund contribution</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-umbrella"></i> Retirement Annuity</div>
+                            <div class="detail-value">Private retirement annuity contribution</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-users"></i> Medical Aid Dependents</div>
+                            <div class="detail-value">Number of dependents (for tax credit calculation)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box success">
+                    <div class="info-box-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <h4>Medical Aid Tax Credit</h4>
+                        <p>The calculator automatically applies medical aid tax credits: R364 for main member, R364 for first dependent, and R246 for each additional dependent.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employer Contributions -->
+            <div class="guide-section">
+                <h2><i class="fas fa-building-columns"></i> Step 5: Employer Contributions</h2>
+                <p>These are additional costs borne by the employer (not deducted from employee salary):</p>
+                
+                <div class="detail-section">
+                    <div class="detail-section-header">
+                        <h3>Employer Costs</h3>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-hand-holding-medical"></i> Medical Aid - Employer</div>
+                            <div class="detail-value">Employer's contribution to medical aid</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-hand-holding-usd"></i> Provident Fund - Employer</div>
+                            <div class="detail-value">Employer's contribution to provident fund</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-shield-alt"></i> UIF - Employer (Auto)</div>
+                            <div class="detail-value">Automatically calculated at 1% (capped at R177.12)</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label"><i class="fas fa-graduation-cap"></i> Skills Development Levy (Auto)</div>
+                            <div class="detail-value">Automatically calculated at 1% of gross income</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Understanding Results -->
+            <div class="guide-section">
+                <h2><i class="fas fa-chart-bar"></i> Understanding Your Results</h2>
+                <p>After calculation, you'll see comprehensive results divided into sections:</p>
+                
+                <div class="summary-cards" style="margin: 2rem 0;">
+                    <div class="summary-card">
+                        <div class="summary-card-header">
+                            <div class="summary-card-icon"><i class="fas fa-money-bill-wave"></i></div>
+                            <div class="summary-card-title">Gross Pay</div>
+                        </div>
+                        <div class="summary-card-value">Example</div>
+                        <div class="summary-card-description">Total income before deductions</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-card-header">
+                            <div class="summary-card-icon"><i class="fas fa-minus-circle"></i></div>
+                            <div class="summary-card-title">Total Deductions</div>
+                        </div>
+                        <div class="summary-card-value">Example</div>
+                        <div class="summary-card-description">PAYE, UIF, and contributions</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-card-header">
+                            <div class="summary-card-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                            <div class="summary-card-title">Net Pay</div>
+                        </div>
+                        <div class="summary-card-value">Example</div>
+                        <div class="summary-card-description">Take-home salary</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-card-header">
+                            <div class="summary-card-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="summary-card-title">Cost to Company</div>
+                        </div>
+                        <div class="summary-card-value">Example</div>
+                        <div class="summary-card-description">Total employer cost</div>
+                    </div>
+                </div>
+
+                <h3>Detailed Breakdowns Include:</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--brand-border);"><i class="fas fa-check" style="color: var(--brand-gold);"></i> <strong>Income Breakdown:</strong> All income components with totals</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--brand-border);"><i class="fas fa-check" style="color: var(--brand-gold);"></i> <strong>Fringe Benefits:</strong> All taxable benefits</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--brand-border);"><i class="fas fa-check" style="color: var(--brand-gold);"></i> <strong>Tax Calculation:</strong> Taxable income, tax brackets, rebates, and effective rate</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--brand-border);"><i class="fas fa-check" style="color: var(--brand-gold);"></i> <strong>Deductions:</strong> PAYE, UIF, and all employee contributions</li>
+                    <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--brand-gold);"></i> <strong>Employer Contributions:</strong> All employer costs including UIF and SDL</li>
+                </ul>
+            </div>
+
+            <!-- PDF Reports -->
+            <div class="guide-section">
+                <h2><i class="fas fa-file-pdf"></i> Generating PDF Reports</h2>
+                <p>Once calculations are complete, you can download a professional PDF report:</p>
+                
+                <div class="info-box info">
+                    <div class="info-box-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <h4>PDF Report Features</h4>
+                        <p>Reports include We Do Tax Services branding, all calculation details, employee information, tax breakdowns, and a professional layout perfect for sharing with clients or keeping records.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>To download a PDF:</strong></p>
+                <ol style="line-height: 2;">
+                    <li>Complete the calculation</li>
+                    <li>Review the results on screen</li>
+                    <li>Click the <strong>"Download PDF Report"</strong> button</li>
+                    <li>The PDF will be saved to your device automatically</li>
+                </ol>
+            </div>
+
+            <!-- Tips & Best Practices -->
+            <div class="guide-section">
+                <h2><i class="fas fa-lightbulb"></i> Tips & Best Practices</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: var(--brand-gold); color: var(--brand-navy);">
+                            <i class="fas fa-save"></i>
+                        </div>
+                        <h3>Save Your Work</h3>
+                        <p>Download PDF reports for record-keeping. The calculator doesn't store data between sessions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: var(--brand-gold); color: var(--brand-navy);">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Double-Check Entries</h3>
+                        <p>Review all inputs before calculating. Small errors in input can lead to significant differences in results.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: var(--brand-gold); color: var(--brand-navy);">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Select Correct Tax Year</h3>
+                        <p>Always ensure you've selected the appropriate tax year for accurate SARS compliance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: var(--brand-gold); color: var(--brand-navy);">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Consult Professionals</h3>
+                        <p>For complex tax situations or personalized advice, contact We Do Tax Services.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts -->
+            <div class="guide-section">
+                <h2><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h2>
+                <div class="data-table">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Shortcut</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd style="background: var(--brand-navy); color: var(--brand-gold); padding: 0.25rem 0.5rem; border-radius: 4px;">Ctrl + Enter</kbd></td>
+                                <td>Calculate Salary</td>
+                            </tr>
+                            <tr>
+                                <td><kbd style="background: var(--brand-navy); color: var(--brand-gold); padding: 0.25rem 0.5rem; border-radius: 4px;">Ctrl + R</kbd></td>
+                                <td>Reset Form</td>
+                            </tr>
+                            <tr>
+                                <td><kbd style="background: var(--brand-navy); color: var(--brand-gold); padding: 0.25rem 0.5rem; border-radius: 4px;">Ctrl + P</kbd></td>
+                                <td>Download PDF Report</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Need Help -->
+            <div class="info-box success" style="margin-top: 3rem;">
+                <div class="info-box-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="info-box-content">
+                    <h4>Need More Help?</h4>
+                    <p>For additional assistance, tax advice, or professional services, please contact <strong>We Do Tax Services (Pty) Ltd</strong>. We're here to help you with all your tax and salary calculation needs.</p>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <h3 style="color: var(--brand-navy); margin-bottom: 1rem;">Ready to Calculate?</h3>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="fas fa-calculator"></i>
+                        Start Calculator
+                    </a>
+                    <a href="test.html" class="btn btn-secondary">
+                        <i class="fas fa-flask"></i>
+                        Try Example
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo-horizontal.png" alt="We Do Tax Services">
+                    </div>
+                    <p>Professional tax services and salary calculations for individuals and businesses in South Africa.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="welcome.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="index.html"><i class="fas fa-calculator"></i> Calculator</a></li>
+                        <li><a href="guide.html"><i class="fas fa-book"></i> User Guide</a></li>
+                        <li><a href="test.html"><i class="fas fa-flask"></i> Test Example</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@wedotax.co.za"><i class="fas fa-envelope"></i> info@wedotax.co.za</a></li>
+                        <li><a href="tel:+27123456789"><i class="fas fa-phone"></i> +27 (0)12 345 6789</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> South Africa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <a href="#">We Do Tax Services (Pty) Ltd</a>. All rights reserved. | Powered by professional tax expertise</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
