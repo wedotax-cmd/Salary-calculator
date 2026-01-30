@@ -6,6 +6,8 @@
 
 A comprehensive, fully-branded web application for calculating South African salaries, PAYE tax, UIF contributions, fringe benefits, and cost to company (CTC). Built for We Do Tax Services (Pty) Ltd.
 
+> **🔄 Latest Update (January 2026):** PAYE calculation fixed to properly handle monthly-to-annual conversion. All calculations now accurately comply with SARS requirements.
+
 ---
 
 ## 🎯 Project Overview
@@ -132,6 +134,13 @@ Both logos are used throughout the application:
 3. Click "Calculate Salary" to see results
 4. Explore the detailed breakdowns
 
+### Option 4: Test PAYE Calculations
+
+1. Open `paye-test.html` in your web browser
+2. Test different salary amounts (R45,000, R76,135, R30,000)
+3. Verify PAYE tax calculations are correct
+4. See detailed annual and monthly breakdowns
+
 ---
 
 ## 📊 How It Works
@@ -240,13 +249,13 @@ CTC = Gross Pay + Employer Medical Aid + Employer Provident Fund + UIF Employer 
 - **6 Tax Brackets:** 18% to 45%
 
 ### 2025/2026 Tax Year
-- **Primary Rebate:** R17,235
+- **Primary Rebate:** R17,861
 - **Medical Aid Credit:** R364 (main), R364 (first dependent), R246 (additional)
 - **UIF Cap:** R177.12
 - **6 Tax Brackets:** 18% to 45%
 
 ### 2026/2027 Tax Year (Current)
-- **Primary Rebate:** R17,235
+- **Primary Rebate:** R18,488
 - **Medical Aid Credit:** R364 (main), R364 (first dependent), R246 (additional)
 - **UIF Cap:** R177.12
 - **6 Tax Brackets:** 18% to 45%
@@ -426,6 +435,14 @@ This application is owned by **We Do Tax Services (Pty) Ltd**.
 
 ## 📝 Version History
 
+### Version 2.1 - PAYE Fix (January 2026)
+- 🔧 **CRITICAL FIX:** Corrected PAYE calculation for monthly salaries
+- ✅ Properly converts monthly income to annual for tax calculation
+- ✅ Applies SARS brackets to annual income
+- ✅ Converts annual tax back to monthly deduction
+- ✅ Added `paye-test.html` for verification
+- ✅ All PAYE calculations now accurate and SARS-compliant
+
 ### Version 2.0 - Branded Edition (January 2026)
 - ✅ Full We Do Tax Services branding
 - ✅ Company logos integrated
@@ -453,6 +470,7 @@ This application is owned by **We Do Tax Services (Pty) Ltd**.
 | **Calculator** | `index.html` | Main calculation tool |
 | **User Guide** | `guide.html` | Complete instructions |
 | **Test Example** | `test.html` | Demo with sample data |
+| **PAYE Test** | `paye-test.html` | Verify PAYE calculations |
 
 ### Data Models
 

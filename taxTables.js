@@ -9,9 +9,9 @@ const SARS_TAX_TABLES = {
     // 2024/2025 Tax Year
     2024: {
         year: "2024/2025",
-        primaryRebate: 17235,
-        secondaryRebate: 9444,  // Age 65-74
-        tertiaryRebate: 3145,   // Age 75+
+        primaryRebate: 17235,       // 18% of R95,750
+        secondaryRebate: 9444,      // Age 65-74
+        tertiaryRebate: 3145,       // Age 75+
         medicalAidCredit: {
             mainMember: 364,
             firstDependent: 364,
@@ -33,9 +33,9 @@ const SARS_TAX_TABLES = {
     // 2025/2026 Tax Year
     2025: {
         year: "2025/2026",
-        primaryRebate: 17861,
-        secondaryRebate: 9786,  // Age 65-74
-        tertiaryRebate: 3259,   // Age 75+
+        primaryRebate: 17235,       // Kept same as 2024/2025
+        secondaryRebate: 9444,      // Age 65-74
+        tertiaryRebate: 3145,       // Age 75+
         medicalAidCredit: {
             mainMember: 364,
             firstDependent: 364,
@@ -57,9 +57,9 @@ const SARS_TAX_TABLES = {
     // 2026/2027 Tax Year
     2026: {
         year: "2026/2027",
-        primaryRebate: 18488,
-        secondaryRebate: 10128,  // Age 65-74
-        tertiaryRebate: 3373,    // Age 75+
+        primaryRebate: 17235,       // Using confirmed amount (18% of R95,750)
+        secondaryRebate: 9444,      // Age 65-74
+        tertiaryRebate: 3145,       // Age 75+
         medicalAidCredit: {
             mainMember: 364,
             firstDependent: 364,
@@ -95,28 +95,31 @@ function getTaxTable(year) {
 
 /**
  * Calculate PAYE tax based on taxable income
- * @param {number} taxableIncome - Annual taxable income
+ * @param {number} monthlyTaxableIncome - Monthly taxable income
  * @param {string|number} year - Tax year
  * @returns {Object} Tax calculation details
  */
-function calculatePAYE(taxableIncome, year = '2026') {
+function calculatePAYE(monthlyTaxableIncome, year = '2026') {
     const taxTable = getTaxTable(year);
     const brackets = taxTable.brackets;
     
-    let totalTax = 0;
+    // Convert monthly income to annual for tax calculation
+    const annualTaxableIncome = monthlyTaxableIncome * 12;
+    
+    let annualTax = 0;
     let bracketDetails = [];
     
     for (let i = 0; i < brackets.length; i++) {
         const bracket = brackets[i];
         
-        if (taxableIncome > bracket.min) {
+        if (annualTaxableIncome > bracket.min) {
             const taxableInBracket = Math.min(
-                taxableIncome - bracket.min,
+                annualTaxableIncome - bracket.min,
                 bracket.max - bracket.min
             );
             
             const taxInBracket = taxableInBracket * bracket.rate;
-            totalTax = bracket.base + taxInBracket;
+            annualTax = bracket.base + taxInBracket;
             
             bracketDetails.push({
                 range: `R${bracket.min.toLocaleString()} - R${bracket.max === Infinity ? '∞' : bracket.max.toLocaleString()}`,
@@ -125,21 +128,29 @@ function calculatePAYE(taxableIncome, year = '2026') {
                 taxAmount: taxInBracket
             });
             
-            if (taxableIncome <= bracket.max) {
+            if (annualTaxableIncome <= bracket.max) {
                 break;
             }
         }
     }
     
-    // Apply primary rebate
-    totalTax = Math.max(0, totalTax - taxTable.primaryRebate);
+    // Apply primary rebate (annual)
+    const annualRebate = taxTable.primaryRebate;
+    annualTax = Math.max(0, annualTax - annualRebate);
+    
+    // Convert to monthly amounts
+    const monthlyGrossTax = (annualTax + annualRebate) / 12;
+    const monthlyRebate = annualRebate / 12;
+    const monthlyNetTax = annualTax / 12;
     
     return {
-        grossTax: totalTax + taxTable.primaryRebate,
-        primaryRebate: taxTable.primaryRebate,
-        netTax: totalTax,
+        grossTax: monthlyGrossTax,
+        primaryRebate: monthlyRebate,
+        netTax: monthlyNetTax,
         brackets: bracketDetails,
-        effectiveRate: taxableIncome > 0 ? (totalTax / taxableIncome) * 100 : 0
+        effectiveRate: monthlyTaxableIncome > 0 ? (monthlyNetTax / monthlyTaxableIncome) * 100 : 0,
+        annualTaxableIncome: annualTaxableIncome,
+        annualTax: annualTax
     };
 }
 

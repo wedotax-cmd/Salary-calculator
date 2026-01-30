@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYE Test - R45,000 Salary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .result {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .result h2 {
+            color: #2C3E50;
+            margin-top: 0;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .row.highlight {
+            background: #C5A053;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .label {
+            font-weight: 600;
+        }
+        .value {
+            color: #C5A053;
+            font-weight: bold;
+        }
+        .row.highlight .value {
+            color: white;
+        }
+        button {
+            background: #C5A053;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #B38F47;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #2C3E50; text-align: center;">PAYE Calculation Test</h1>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button onclick="testR45000()">Test R45,000 (No Med Aid)</button>
+        <button onclick="testR45000WithMedAid()">Test R45,000 (With Med Aid)</button>
+        <button onclick="testR76135()">Test R76,135 Salary</button>
+        <button onclick="testR30000()">Test R30,000 Salary</button>
+    </div>
+    
+    <div id="results"></div>
+
+    <script src="js/taxTables.js"></script>
+    <script>
+        function displayResults(salary, description, medAidEmployee = 0, medAidDependents = 0) {
+            const payeCalc = calculatePAYE(salary, '2026');
+            const uif = calculateUIF(salary, '2026');
+            
+            // Only apply medical aid credit if taxpayer has medical aid
+            let medAidCredit = 0;
+            if (medAidEmployee > 0) {
+                medAidCredit = calculateMedicalAidTaxCredit(medAidDependents, '2026');
+            }
+            
+            const payeTax = Math.max(0, payeCalc.netTax - medAidCredit);
+            const totalDeductions = payeTax + uif + medAidEmployee;
+            const nettPay = salary - totalDeductions;
+            
+            const html = `
+                <div class="result">
+                    <h2>${description}</h2>
+                    <div class="row">
+                        <span class="label">Monthly Gross Salary:</span>
+                        <span class="value">R ${salary.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Annual Taxable Income:</span>
+                        <span class="value">R ${payeCalc.annualTaxableIncome.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Annual Tax (before rebate):</span>
+                        <span class="value">R ${(payeCalc.annualTax + 17235).toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Annual Primary Rebate:</span>
+                        <span class="value">R 17,235.00 (18% of R95,750)</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Annual Tax (after rebate):</span>
+                        <span class="value">R ${payeCalc.annualTax.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <hr style="margin: 15px 0;">
+                    <div class="row">
+                        <span class="label">Monthly PAYE (Gross):</span>
+                        <span class="value">R ${payeCalc.grossTax.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Monthly Primary Rebate:</span>
+                        <span class="value">R ${payeCalc.primaryRebate.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    ${medAidEmployee > 0 ? `
+                    <div class="row">
+                        <span class="label">Medical Aid Employee Contribution:</span>
+                        <span class="value">R ${medAidEmployee.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Monthly Medical Aid Tax Credit:</span>
+                        <span class="value">R ${medAidCredit.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    ` : `
+                    <div class="row">
+                        <span class="label">Monthly Medical Aid Tax Credit:</span>
+                        <span class="value">R 0.00 (No medical aid)</span>
+                    </div>
+                    `}
+                    <div class="row">
+                        <span class="label">Monthly PAYE Tax:</span>
+                        <span class="value">R ${payeTax.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Monthly UIF (1%):</span>
+                        <span class="value">R ${uif.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Total Monthly Deductions:</span>
+                        <span class="value">R ${totalDeductions.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="row highlight">
+                        <span class="label">Monthly Nett Pay:</span>
+                        <span class="value">R ${nettPay.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="row">
+                        <span class="label">Effective Tax Rate:</span>
+                        <span class="value">${payeCalc.effectiveRate.toFixed(2)}%</span>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('results').innerHTML = html;
+        }
+        
+        function testR45000() {
+            displayResults(45000, 'Test: R45,000 Monthly Salary (No Medical Aid)', 0, 0);
+        }
+        
+        function testR45000WithMedAid() {
+            displayResults(45000, 'Test: R45,000 Monthly Salary (With Medical Aid)', 2000, 2);
+        }
+        
+        function testR76135() {
+            displayResults(76135, 'Test: R76,135 Monthly Salary (Brent Waller)', 0, 0);
+        }
+        
+        function testR30000() {
+            displayResults(30000, 'Test: R30,000 Monthly Salary (No Medical Aid)', 0, 0);
+        }
+        
+        // Auto-run R45,000 test on load
+        window.onload = function() {
+            testR45000();
+        };
+    </script>
+</body>
+</html>

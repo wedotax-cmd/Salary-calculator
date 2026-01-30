@@ -83,18 +83,26 @@ class SalaryCalculator {
         const uifEmployee = calculateUIF(grossIncome, i.taxYear);
         const uifEmployer = uifEmployee; // Employer matches
         
-        // 5. Calculate Medical Aid Tax Credit
-        const medicalAidTaxCredit = calculateMedicalAidTaxCredit(
-            i.medicalAidDependents,
-            i.taxYear
-        );
+        // 5. Calculate Medical Aid Tax Credit (only if taxpayer contributes to medical aid)
+        let medicalAidTaxCredit = 0;
+        const hasEmployeeMedicalAid = i.medicalAidEmployee > 0;
+        const hasEmployerMedicalAid = i.medicalAidEmployer > 0;
+        
+        if (hasEmployeeMedicalAid || hasEmployerMedicalAid) {
+            medicalAidTaxCredit = calculateMedicalAidTaxCredit(
+                i.medicalAidDependents,
+                i.taxYear
+            );
+        }
         
         // 6. Calculate PAYE Tax
         const payeCalculation = calculatePAYE(taxableIncome, i.taxYear);
         let payeTax = payeCalculation.netTax;
         
-        // Apply Medical Aid Tax Credit
-        payeTax = Math.max(0, payeTax - medicalAidTaxCredit);
+        // Apply Medical Aid Tax Credit (only if taxpayer has medical aid)
+        if (medicalAidTaxCredit > 0) {
+            payeTax = Math.max(0, payeTax - medicalAidTaxCredit);
+        }
         
         // 7. Calculate Total Deductions
         const totalDeductions = 
