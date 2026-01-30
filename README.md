@@ -240,13 +240,13 @@ CTC = Gross Pay + Employer Medical Aid + Employer Provident Fund + UIF Employer 
 - **6 Tax Brackets:** 18% to 45%
 
 ### 2025/2026 Tax Year
-- **Primary Rebate:** R17,861
+- **Primary Rebate:** R17,235
 - **Medical Aid Credit:** R364 (main), R364 (first dependent), R246 (additional)
 - **UIF Cap:** R177.12
 - **6 Tax Brackets:** 18% to 45%
 
 ### 2026/2027 Tax Year (Current)
-- **Primary Rebate:** R18,488
+- **Primary Rebate:** R17,235
 - **Medical Aid Credit:** R364 (main), R364 (first dependent), R246 (additional)
 - **UIF Cap:** R177.12
 - **6 Tax Brackets:** 18% to 45%
